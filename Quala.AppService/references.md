@@ -1,5 +1,0 @@
-﻿
-## Assembly References
-
-### Framework
-- System

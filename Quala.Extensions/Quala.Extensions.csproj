@@ -61,7 +61,7 @@
     <Compile Include="[Collections]\VersionedCollection.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="references.md" />
+    <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

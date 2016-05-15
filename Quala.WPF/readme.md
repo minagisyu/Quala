@@ -1,11 +1,16 @@
 ﻿
-## Assembly References
+# Quala.WPF
 
-### Nuget
+WPF Behavior, Controls, Extensions.
+Utility co-class.
+
+### Assembly References
+
+#### Nuget
 - Expression.Blend.Sdk
 - Rx-Main
 
-### Framework
+#### Framework
 - WindowsBase
 - PresentationCore
 - PresentationFramework
@@ -14,5 +19,5 @@
 - System.Drawing
 - System.Windows.Forms
 
-### Projects
+#### Projects
 - Quala.Win32

@@ -1,12 +1,12 @@
 ﻿using System;
-using Threading = System.Threading;
+using System.Threading;
 
 namespace Quala
 {
 	public sealed partial class AppMutex : IDisposable
 	{
 		string name = null;
-		Threading.Mutex _mutex = null;
+		Mutex _mutex = null;
 
 		void IDisposable.Dispose()
 		{
@@ -29,7 +29,7 @@ namespace Quala
 			{
 				((IDisposable)this).Dispose();
 				name = value;
-				_mutex = new Threading.Mutex(false, value);
+				_mutex = new Mutex(false, value);
 			}
 		}
 

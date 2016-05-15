@@ -137,7 +137,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="references.md" />
+    <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="External\Microsoft.WindowsAPICodePack.dll" />
