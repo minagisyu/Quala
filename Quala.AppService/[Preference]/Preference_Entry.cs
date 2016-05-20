@@ -19,7 +19,7 @@ namespace Quala
 			}
 
 			//= KeyValue
-			readonly ConcurrentDictionary<string, string> _keyValue = new ConcurrentDictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
+			readonly ConcurrentDictionary<string, object> _keyValue = new ConcurrentDictionary<string, object>(StringComparer.InvariantCultureIgnoreCase);
 
 			public Entry Clear()
 			{
@@ -27,15 +27,15 @@ namespace Quala
 				return this;
 			}
 
-			public Entry GetValue(string key, Action<string> valueAction)
+			public Entry GetValue(string key, Action<object> valueAction)
 			{
-				string value;
+				object value;
 				lock (_keyValue) { value = _keyValue[key]; }
 				valueAction?.Invoke(value);
 				return this;
 			}
 
-			public Entry SetValue(string key, string value)
+			public Entry SetValue(string key, object value)
 			{
 				lock (_keyValue) { _keyValue[key] = value; }
 				return this;
@@ -50,7 +50,7 @@ namespace Quala
 				if (File.Exists(_jsonFilePath) == false) { return; }
 
 				var json = File.ReadAllText(_jsonFilePath);
-				var dic = JsonConvert.DeserializeObject<IDictionary<string, string>>(json);
+				var dic = JsonConvert.DeserializeObject<IDictionary<string, object>>(json);
 
 				lock (_keyValue)
 				{
@@ -67,7 +67,7 @@ namespace Quala
 
 				lock (_keyValue)
 				{
-					var json = JsonConvert.SerializeObject(_keyValue as IDictionary<string, string>);
+					var json = JsonConvert.SerializeObject(_keyValue as IDictionary<string, object>);
 					json = FormatOutput(json);
 					File.WriteAllText(_jsonFilePath, json);
 				}
